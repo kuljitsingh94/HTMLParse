@@ -1,0 +1,629 @@
+01. C pointers are non-orthogonal because a pointer is a primitive scalar type 
+    that does not consistently behave like other scalars. The following lines 
+    of code behave as expected if c and d are integers. Which lines behave 
+    inconsistently if c and d are pointers (i.e., will cause a syntax error)? 
+
+    A. c = d;     
+    B. d++;                    
+    C. c *= d; 
+    D. c = c+d;<split>C,D<endofquestion>02. C parameters are passed by value. To pass an array you pass the value of 
+    the array's address (i.e., a pointer) as type char * or char[]. This is 
+    non-orthogonal because
+
+    A. the name of the array is treated like an address.
+    B. Index operators [] can be used on type char * and type char [].
+    C. Both A and B are correct.<split>C<endofquestion>03. Assume you have a Student class in C++ that uses dynamic memory allocation 
+    for the student's name: <code> char *name;  </code>
+ 
+    What happens after the following code is executed if the assignment operator
+    in line 3 performs a bit copy? (i.e., '=' is not overloaded by programmer)
+
+    Student One("Sam Spade");
+    Student Two("Joe Smoo");
+    One = Two;  // Line 3   
+    strcpy(Two.name,"FooBar");   // copies "FooBar" to Two.name  
+
+    A. Student.One and Student.Two are both named "FooBar"
+    B. Student.One is named "FooBar" and Student.Two is named "Joe Smoo"
+    C. It will cause a runtime error.<split>A<endofquestion>04. Which criterion for a good programming language is C most deficient in?
+
+    A. efficiency    B. reliability    C. readability    D. writeability<split>B<endofquestion>05. Which are true concerning C++'s exception handling facility?
+    A. You can pass error codes back to the calling routine without using the
+       return value.
+    B. If objects are allocated in a try block, destructors are automatically
+       called if an exception occurs.
+    C. If an exception is caught in a function, the exception must be rethrown 
+       back to the calling function.
+    D. A try block must have a matching catch block.<split>A,B,D<endofquestion>06. In C++ what happens to an unhandled exception?
+    A. The exception is thrown to each function on the runtime stack in reverse
+       call order. 
+    B. The exception is rethrown to each function on the runtime stack in call
+       order. 
+    C. The program immediately terminates with an error message.
+    D. There is no such thing as an unhandled exception.<split>A<endofquestion>07. When would you not re-throw an exception back to the calling routine?
+    A. If you want to handle a non-critical error locally.  
+    B. If you want to execute code in the function beyond the catch block. 
+    C. Both A and B.<split>C<endofquestion>08. Which might be good measures of the readability of a program?
+    A. runtime efficiency   
+    B. memory usage  
+    C. orthogonality  
+    D. comment density<split>C,D<endofquestion>09. Scripting languages generally beat compiled language for which? 
+    A. runtime efficiency  B. memory usage   C. writeability   D. reliability<split>C<endofquestion>10. Which language has dominated system programming for the last 40 years?
+    A. C        B. Java       C. Fortran     D. Assembly<split>A<endofquestion>11. Which of the following is a client-side scripting language?
+    A. Perl     B. Python    C. PHP     D. JavaScript<split>D<endofquestion>12. Select the true statements.
+    A. Java source code is compiled into bytecode and executed by the Java VM.
+    B. Java bytecode can run on multiple platforms without recompilation.
+    C. Some cell phones have Java support built into hardware. 
+    D. Java is a procedural and an O-O language.<split>A,B,C<endofquestion>13. One valid criticism of the Unix development platform is
+    A. the lack of software development tools.       
+    B. the lack of an IDE (integrated development environment).
+    C. both A and B<split>B<endofquestion>14. Which language has dominated scientific computing over the past 40 years?
+    A. Fortran       B. Cobol        C. Lisp       D. C<split>A<endofquestion>15. Which language has dominated business applications over the past 40 years?
+   A. Fortran       B. Cobol        C. Ada       D. C<split>B<endofquestion>16. Scheme is a dialect of which language?
+    A. Fortran       B. Cobol        C. Lisp      D. SNOBOL<split>C<endofquestion>17. What programming language is used primarily for AI?
+    A. Fortran       B. Cobol        C. Lisp      D. SNOBOL<split>C<endofquestion>18. The UNIX operating system is written primarily in which language?
+    A. Fortran       B. Assembly      C. Lisp     D. C<split>D<endofquestion>19. What is the primary disadvantage to multiple ways of doing the same thing?
+    A. readability     B. reliability    C. writeability<split>A<endofquestion>20. Which of the following does not promote readability?
+    A. orthogonality      B. type checking    C. code reusability<split>B<endofquestion>21. What is true about user-defined operator overloading?
+    A. If done improperly, it can harm the readability of a program.
+    B. If done properly, it can improve the readability of a program.
+    C. both A & B<split>C<endofquestion>22. Which is an example of non-orthogonality in the design of C?
+    A. The meaning of the '*' symbol depends on the context. 
+    B. Arrays cannot be returned by functions.
+    C. Both A & B<split>C<endofquestion>23. What language uses orthogonality as a primary design criterion?
+    A. Ada       B. ALGOL 68      C. Java      D. Python<split>B<endofquestion>24. What primitive control statement can build all others? 
+    A. switch          B. goto       C. for      D. if-else<split>B<endofquestion>25. What is the disadvantage to using the same closing reserved word or symbol 
+    for more than one kind of control statement?
+    A. readability       B. writeability        C. both A and B<split>A<endofquestion>26. The licensing costs of the compiler is part of the overall cost of a 
+    programming language.<split>A<endofquestion>27. What construct of a programming language provides process abstraction?
+    A. subprograms  B. if statements   C. while loops    D. structures<split>A<endofquestion>28. Software reliability means that the program
+    A. never has an exception during runtime.
+    B  has an intuitive user interface.
+    C. behaves according to specifications under all conditions.<split>C<endofquestion>29. Two or more distinct referencing names for the same memory location is 
+    A. parallelism        B. aliasing<split>B<endofquestion>30. In a exception handling facility, what type of code would you put after a 
+    throw in a try block? 
+    A. The code you want executed after a non-critical exception has occurred.
+    B. The code you want executed if an exception hasn't occurred.
+    C. You should not put any code after a throw in a try block.<split>B<endofquestion>31. The strongest influence on language design over the past 45 years has been
+    A. improvements in computer architecture
+    B. memory cost 
+    C. the need to make programs more reliable 
+    D. object-oriented methodology<split>A<endofquestion>32. Which categories of languages are dictated by the von Neumann architecture?
+    A. functional    B. procedural   C. imperative    D. declarative<split>B,C<endofquestion>33. Which two deficiencies were discovered as a result of research in software 
+    development in the late 60s and early 70s and which subsequently resulted 
+    in structured languages such as Pascal?
+
+A. insufficient control statements 
+B. insufficient data structures
+C. insufficient type checking 
+D. lack of recursion<split>A,C<endofquestion>34. Which two language design criteria are more often in direct conflict?
+    A. readability and reliability      B. readability and writability<split>B<endofquestion>35. Which approach to language implementation generally results in the fastest 
+    program execution?
+    A. compilation        B. runtime interpreter<split>A<endofquestion>36. What is true about the symbol table used by the compiler?
+    A. It is created during compilation and used throughout program execution.
+    B. It contains information needed by the compiler such as type and scope
+       attribute of all symbols.
+    C. both A & B<split>B<endofquestion>37. What does a static linker do?
+    A. collects system libraries and links them to user programs 
+    B. resolves external linkage between compilation units
+    C. both A and B<split>C<endofquestion>38. The "von Neumann bottleneck" is the limit on what?
+    A. speed of execution due to memory-to-processor throughput
+    B. the amount of memory that can be used for cache
+    C. both A and B.<split>A<endofquestion>39. Which are advantages of coding under a pure interpreter over a compiler?
+    A. ease of modification    
+    B. ease of runtime debugging facilities
+    C. runtime efficiency
+    D. source portability<split>A,B,D<endofquestion>40. A declarative language can also be imperative.<split>B<endofquestion>01. What is true about Fortran?
+    A. It was designed specifically for the VAX 3000. 
+    B. Designer John Backus was first and foremost a hardware designer.
+    C. Backus claimed Fortran would virtually eliminate coding errors.
+    D. Backus later retracted his earlier claim regarding coding errors.<split>B,C,D<endofquestion>02. Which feature(s) were not in Fortran 0?
+    A. assignment statements
+    B. subroutines 
+    C. loop control statements
+    D. string data types<split>C,D<endofquestion>03. How did index registers, which first appeared in the IBM 701 in 1955,
+    influence the evolution of programming languages? 
+    A. by eliminating the need for absolute addressing into arrays 
+    B. by allowing loop operations on arrays to be implemented more efficiently 
+    C. both A and B<split>C<endofquestion>04. The first Fortran compiler was developed in which decade?  
+    A. 1940       B. 1950         C. 1960      D. 1970<split>B<endofquestion>05. Which constructs were in the original specification of LISP?
+    A. atoms    B. lists    C. arrays    D. numbers<split>A,B<endofquestion>06. The primary reason for the relative slowness of pseudocode interpreters in 
+    the early 1950s was what? 
+    A. floating-point arithmetic done in software rather than hardware
+    B. insufficient memory
+    C. both A and B<split>A<endofquestion>07. The writer and designer of Fortran (John Backus) was also the co-designer 
+    of which of the following?
+    A. the IBM computer architecture that the Fortran compiler ran on 
+    B. the LISP programminhg language
+    C. the VAX minicomputer architecture<split>A<endofquestion>08. What behaviors differentiate dynamic typed languages from non-dynamic ones?
+    A. the value of a variable may change at runtime
+    B. the address of a global variable may change at runtime
+    C. the type of a variable may change at runtime 
+    D. the size of a global variable may change at runtime<split>B,C,D<endofquestion>10. In an imperative language, the primary operation is
+    A. the if statement  
+    B. the assignment statement  
+    C. the loop   
+    D. all three<split>B,C<endofquestion>11. The LISP language was written in what decade?  
+    A. 1940       B. 1950         C. 1960       D. 1970<split>B<endofquestion>12. Which statements are true regarding the COBOL language?
+    A. COBOL was developed by computer manufacturers and the Dept. of Defense.
+    B. A 1997 Gartner Group report found 80% of the world's business apps ran 
+       on COBOL.
+    C. All subsequent imperative languages are based on COBOL.
+    D. COBOL was the first language to separate code and data in memory.<split>B<endofquestion>13. What missing language element of ALGOL 60 damaged its chances for 
+    widespread use? 
+    A. dynamic memory 
+    B. input/output statements
+    C. pass by reference<split>A,B,D<endofquestion>14. The first COBOL compiler was released in what decade?
+    A. 1940     B. 1950      C. 1960    D. 1970<split>B<endofquestion>15. Which language provided the basis of all subsequent imperative languages,
+    although the language itself was never widely used?
+    A. PL/I     B. ALGOL     C. Ada    D.  SIMULA<split>C<endofquestion>16. Select the true statements. BASIC  
+    A. was the first widely used time-sharing language.
+    B. was originally designed for non-science students.
+    C. was first implemented on an Intel microprocessor.
+    D. is a functional language.<split>B<endofquestion>17. Why was BASIC an important language in the early 1980s?
+    A. BASIC was the first structured programming language.
+    B. Microcomputers had small memories and BASIC interpreters were very small.
+    C. both statements are true<split>A,B<endofquestion>18. PL/I was designed to replace which language?
+    A. Fortran     B. COBOL       C. ALGOL      D. all three<split>B<endofquestion>19. PL/I was designed for what type of computer?
+    A. mainframe   B. minicomputer   C. microcomputer  D. embedded system<split>D<endofquestion>20. Classes and inheritance, now important parts of object-oriented languages, 
+    were initially introduced in which language?
+    A. LISP      B. SNOBOL       C. Prolog       D. Simula 67<split>A<endofquestion>21. What innovation of data structuring was introduced in ALGOL 68 but is often 
+    credited to Pascal?
+    A. user defined data types     B. dynamic memory    C. arrays<split>D<endofquestion>22. Which design criteria were used extensively in ALGOL 68?
+    A. reliability   B. orthogonality   C. concurrency    D. objects<split>A<endofquestion>23. Which language is considered to be too large and complex?
+    A. Ada     B. PL/I     C. LISP    D. ALGOL<split>B<endofquestion>24. Algorithms are written as a series of statements (rules and facts) that 
+    evaluate to true or false in which language paradigm? 
+    A. functional     B. logic    C. declarative    D. both B & D<split>B<endofquestion>25. Which language was designed to facilitate string processing?
+    A. LISP     B. Algol     C. Prolog     D. SNOBOL<split>D<endofquestion>26. When Ada was designed what feature set it apart from other languages?
+    A. concurrancy    B. data-oriented   C. procedure-oriented<split>D<endofquestion>27. Smalltalk, developed by Alan Kay et al. at Xerox, is a precurser for which
+    language paradigm?
+    A. functional   B. object-oriented   C. procedural   D. declarative<split>A<endofquestion>28. Which language(s) were forced on programmers by the Department of Defense?
+    A. Ada              B. COBOL                C. both A and B<split>B<endofquestion>29. What Ada construct is similar to classes in the object-oriented paradigm?
+    A. packages     B. procedures<split>C<endofquestion>30. Delphi is derived from which language?
+    A. Ada      B. Pascal     C. Fortran     D. C<split>A<endofquestion>31. Which language was developed specifically for web programming?
+    A. PHP      B. Python      C. Ruby     D. Perl<split>B<endofquestion>32. Perl was written by Larry Wall at JPL to combine or extend which languages?
+    A. Unix shell utilities (awk, sed, sh) 
+    B. Fortran 
+    C. C 
+    D. assembly<split>A<endofquestion>33. The code below will execute without an error in Javascript. Per this 
+    example what can you conclude about Javascript? (<a href="./examples/week2/test.html">see code</a>)
+
+    var x = 5;      
+    var y = "hi";  
+    var z = x + y;  // Line 3  - produces "hi4.5"
+    y = 2.5;
+    z = y + 7;     // produces 9.5
+ 
+    A. Javascript is a typeless language.
+    B. Javascript is a dynamically typed language.
+    C. Var x is coerced temporarily into a string at Line 3. 
+    D. Javascript overloads the '+' operator.<split>A,C<endofquestion>34. Which of the following is a true statement?
+    A. Functions may exist outside classes in both C++ and Java.
+    B. Functions may exist outside classes in C++ but not in Java.<split>B,C,D<endofquestion>35. What is true regarding C#? 
+    A. C# is a compiled language like C++.
+    B. C# is a hybrid language like Java and compiled into bytecode first.<split>B<endofquestion>36. Which of the following features are in C++ but not in Java?
+    A. the goto statement 
+    B. pass by reference
+    C. both A and B<split>B<endofquestion>37. Ada was primarily designed for what application area?
+    A. engineering    B. business    C. number crunching   D. embedded systems<split>C<endofquestion>38. What characteristic of Java is most evident in JavaScript?
+    A. how classes are created and used
+    B. the syntax of control statements
+    C. dynamic typing<split>D<endofquestion>39. Which of the following were goals in the design of C++?
+    A. reliability 
+    B. to support legacy C programs
+    C. to allow an organization similar to Simula 67
+    D. generic programming<split>B<endofquestion>40. JavaServlets are part of what technology? 
+    A. JavaScript    B. JSP     C. .NET     D. XSLT<split>B,C,D<endofquestion>41. Which statement is true in LISP?
+    A. In prefix notation, an operator can take any number of arguments.  
+    B. In LISP, everything but NIL and 0 is true.
+    C. Both statements are true.<split>B<endofquestion>42. Why were imperative features added to LISP? 
+    A. To reduce function calls and make LISP more efficient.
+    B. To improve writeability and readability.
+    C. Both A and B<split>C<endofquestion>43. Which of the following is an imperative construct that was added to LISP?
+    A. car          B. setf      C. cons        D. lambda<split>C<endofquestion>44. Common LISP is a typeless language.
+    A. True      B. False<split>B<endofquestion>45. In a static scoped language like C, what will function g return?
+        x = 0;
+        int f() { return x; }
+        int g() { int x = 1; return f(); }
+
+     A. 0       B. 1       C. f()<split>B<endofquestion>46. What will this LISP function return if you call it with (foo '(1 2 3))?
+
+      (defun foo (x)
+        (if (null x)
+           0 
+        (+ (foo (cdr x)) (car x))))
+
+    A. return 3             B. return 6<split>A<endofquestion>47. What does this LISP function return if you call it with (thing '(a b c))?
+
+    (defun thing (x)
+       (if (NULL x)
+           NIL
+           (if (listp (car x) )
+               T
+               (thing (cdr x)))))
+  A.  NIL 
+  B.  T<split>B<endofquestion>48. This function will return T if the last element in the list y is equal to
+    the value of x, otherwise NIL. 
+       (defun stuff (x y)
+          (if (null y)
+              nil
+             (if (eql (car y) x)
+                 t
+                 (stuff x (cdr y)))))
+    A. True    B. False<split>A<endofquestion>49. In a LISP interpreter what will this lambda expression return?
+           ((lambda (x) (+ x 100)) 1)
+
+    A. 1       B. 101      C. nothing, x has not been assigned a value<split>B<endofquestion>50. LISP functions return an atom or a list. T is an atom and () is both.
+    A. True    B. False<split>B<endofquestion><split>A<endofquestion>01. Which of the following Java language components are lexemes?
+    A. *       B. identifier         C. while       D. integer<split>A,C<endofquestion>02. Which of the following Java constructs is a token?
+    A. for     B. literal      C. both A & B<split>B<endofquestion>03. Programming languages are primarily defined by what type of grammar?
+    A. context-sensitive    B. context-free    C. regular   D. unrestricted<split>B<endofquestion><div class="Code">
+BNF GRAMMAR 1
+   &lt;expr> ::= &lt;expr> + &lt;term> | &lt;term> - &lt;term>
+   &lt;term> ::= &lt;var> | const
+   &lt;var>  ::= a | b | c | d </div>
+04. The rule &lt;expr> ::= &lt;expr> + &lt;term> from GRAMMAR 1 makes addition 
+    A. left associative.   B. right associative.<split>A<endofquestion>05. Which statements are true in the language defined by GRAMMAR 1?
+    A. subtraction will always be evaluated before addition
+    B. a '+' terminal will be lower in the parse tree than a '-' terminal
+    C. the evaluation order of '+' and '-' will vary depending on the context 
+    D. there are 5 terminals in the language<split>A,D<endofquestion>06. The following is a valid expression in GRAMMAR 1. 
+         a + b - c<split>B<endofquestion>07. Following GRAMMAR 1, the first sentential form in the derivation of the
+     expression below is what?
+          a - b + c
+   A. &lt;expr> + &lt;term>    B. &lt;term> - &lt;term><split>A<endofquestion>08. Which of the following conditions are necessary and sufficient to claim that
+    a context-free grammar is ambiguous? 
+    A. at least one rule contains the epsilon symbol (the empty list).
+    B. the LHS appears twice in the RHS the rule (double-recursion).
+    C. parsing a sentence in the grammar results in two distinct parse trees.
+    D. a choice of two production rules can be successfully applied at one step.<split>B,C,D<endofquestion>09. Select the true statements. In the model of grammars developed by Chomsky
+    A. the language of a^nb^nc^n; i.e., {abc,aabbcc,aaabbbccc,...}, is regular.
+    B. context-free grammars and BNF grammars are theoretically equivalent.
+    C. a regular grammar is Chomsky's most restrictive form of grammar. 
+    D. high-level programming languages are primarily context-free languages.<split>B,C,D<endofquestion>10. A statement list in Perl is one or more statements separated by semi-colons
+    and enclosed in curly braces. Which is a correct BNF grammar for a Perl 
+    statement list? (The curly braces and semicolon are terminal symbols.)
+
+    A. &lt;stmt_list> ::= { &lt;stmts> }
+       &lt;stmts> ::=  &lt;stmt> | &lt;stmt>; &lt;stmts>
+    B. &lt;stmt_list> ::= { &lt;stmt> } | { &lt;stmt>; &lt;stmt_list> }<split>A<endofquestion><div class="Code"> <tt>
+BNF GRAMMAR 2 
+  &lt;assign> ::= &lt;id> = &lt;expr>
+    &lt;expr> ::= &lt;expr> + &lt;term> | &lt;term>
+    &lt;term> ::= &lt;term> * &lt;factor>  | &lt;factor>
+  &lt;factor> ::= (&lt;expr>) | &lt;id>
+    &lt;id> ::= a | b | c  </tt></div>
+11. In Grammar 2 you know * has precedence over + because
+    A. &lt;term> -> &lt;term> * &lt;factor> before &lt;factor> -> &lt;id>. 
+    B. in the parse tree for 5 + 3 * 4, * is below +.
+    C. Both A & B.<split>C<endofquestion>12. Select the true statements concerning Grammer 2. 
+    A. If you swap + and *, + will take precedence over *.
+    B. + is defined in terms of *.
+    C. + and * associate to the left.
+    D. ((a + b) * (c * a)) is a valid expression in the language.<split>A,B,C,D<endofquestion><div class="Code"> 
+<tt>BNF GRAMMAR 3
+&lt;assign> ::= &lt;id> = &lt;expr>
+&lt;expr> ::= &lt;id> + &lt;expr> | &lt;id> * &lt;expr> | (&lt;expr>) | &lt;id>
+&lt;id> -> a | b | c 
+</div></tt>
+13. Which of the following are valid sentences in the language defined by 
+    GRAMMAR 3?
+    A. a = a * (b + (c * a))
+    B. a = a + b * c
+    C. b = (a + b) * c
+    D. a = (a + b) * (c + d)<split>A,B<endofquestion>14. In GRAMMAR 3 one outcome of rule &lt;expr> ::= (&lt;expr>) will be to allow 
+    addition to be evaluated before multiplication if desired.<split>A<endofquestion><div class="Code"> <tt>GRAMMAR 4:
+    &lt;assign> ::= &lt;id> = &lt;expr>
+    &lt;expr> ::= &lt;expr> + &lt;term> | &lt;term>
+    &lt;term> ::= &lt;term> * &lt;factor>  | &lt;factor>
+    &lt;factor> ::= (&lt;expr>) | &lt;id> </tt>
+    &lt;id> ::= a | b | c 
+</div>
+15. Is the partial leftmost derivation using Grammar 4 shown below correct? 
+
+           a = (a + b) * c
+
+    &lt;assign> => &lt;id> = &lt;expr>
+             => a  =  &lt;expr>
+             => a = &lt;term>
+             => a = &lt;term> * &lt;factor>
+             => a = &lt;factor> * &lt;factor><split>A<endofquestion>16. Is the parse tree below correct for the given statement following GRAMMAR 4?
+
+                a = (a + b) * c
+
+                    &lt;assign> 
+                   /   |   \ 
+                 &lt;id>  =   &lt;expr>
+                  |          |
+                  a       &lt;term>   
+                         /   |  \
+                      &lt;term> * &lt;factor>
+                        |          |
+                     &lt;factor>     &lt;id>
+                        |          |
+                    (&lt;expr>)       c 
+                     /  |  \       
+                &lt;expr>  + &lt;term>   
+                  |         |
+                &lt;term>    &lt;factor>
+                  |         |
+                &lt;factor>   &lt;id>
+                  |         |
+                 &lt;id>       b
+                  |
+                  a<split>A<endofquestion>17. Is the following grammar ambiguous?
+     &lt;S> -> &lt;A>
+     &lt;A> -> &lt;A> + &lt;A>  | &lt;id>
+     &lt;id> -> a | b | c<split>A<endofquestion>ERROR IS QUESTION - A. was 'abbbcc' which could not be generated
+18. Which string can be derived by this grammar?
+    &lt;S> -> &lt;A> &lt;B> &lt;C>
+    &lt;A> -> a&lt;A> | a 
+    &lt;B> -> b&lt;B>c | b 
+    &lt;C> -> c&lt;C> | c  
+    A. abbbccc    B. abbc   C. both A & B<split>A<endofquestion>ERROR IN ANSWER - FIXED NOW
+19. Consider the grammar:
+    &lt;S> -> &lt;A> a &lt;B> b
+    &lt;A> -> &lt;A> b | b 
+    &lt;B> -> a &lt;B> | a
+
+    Which strings are in the language defined by this grammar?
+    A. bbbab       B. bbaaaaa        C. baab         D. bbaabb<split>C<endofquestion>20. Consider the grammar
+    S -> AB | AD
+    A -> Aa | b
+    B -> Bb | a
+    D -> cDc | d 
+   Which of the following is not a valid string in the language?
+   A. bccdcc        B. bbbbab        C. aaaacccc<split>C<endofquestion>21. The grammar below defines the set of strings of 1 or more "b"s followed by 
+    2 or more "a"s and ending with one "b". 
+
+    &lt;S> -> &lt;A> a &lt;B> b
+    &lt;A> -> &lt;A> b | b
+    &lt;B> -> a &lt;B> | a<split>A<endofquestion>22. Java is a procedural, object-oriented, and imperative language.<split>B<endofquestion>23. Which of the following is true in Java?
+    A. garbage collection for memory that is dynamically allocated is automatic
+    B. you do not need to call a destructor
+    C. both statements are true.<split>C<endofquestion>24. The Java character set is what?
+    A. 16-bit extended ASCII (Text-16)
+    B. 16-bit Unicode (UTF-16)
+    C. 32-bit Unicode (UTF-32)
+    D. 64-bit Hex  (Hex-64)<split>B<endofquestion>25. Java does not support direct access to memory through pointers. How does
+    this impact the Java runtime environment?
+    A. it reduces the risk of segmentation faults
+    B. it reduces the risk of buffer overflows
+    C. it is more difficult to write low-level drivers for the operating system
+    D. it eliminates dynamic memory leaks<split>A,B,C<endofquestion>26. The length of the bit strings produced by this grammar will always be odd.
+
+           A -> 0 | 01A  | 1AA<split>B<endofquestion>01. Under the C language, which issues below require an attribute grammar?  
+    A. Preventing the dangling else problem. 
+    B. Preventing duplicate identifier names in the same block.
+    C. Controlling naming so that a variable name does not begin with a digit. 
+    D. Enforcing type checking in parameter passing.<split>A,B,D<endofquestion>02. An attribute grammar
+    A. adds context-sensitive information to a context-free grammar. 
+    B. describes runtime semantics; i.e., the behavior of a running program.
+    C. Both statements are true.<split>A<endofquestion>03. In the partial grammar below, assume &lt;string>.<em>Size</em> is an attribute whose
+    value is returned by function Size. What type of attribute is Size in
+    the context of this production rule? Note that '&lt;-' denotes assignment 
+    from right to left.
+
+       &lt;string> ::= &lt;string>[2] x 
+       Size(&lt;string>) <- Size(&lt;string>[2]) + 1  
+
+    A. synthesized attribute        
+    B. inherited attribute  
+    C. both A & B<split>A<endofquestion>04. Select the true statement.
+    A. Synthesized attributes pass information from child to parent up the 
+       parse tree.
+    B. The parent node is the head (left-hand side) of a production rule.
+    C. both A & B<split>C<endofquestion>05. Select the true statements concerning attribute grammars.
+    A. The values of intrinsic attributes are assigned before parsing begins.
+    B. Inherited attributes are decorated in a bottom-up fashion.
+    C. Synthesized attributes carry information up the parse tree.
+    D. Intrinic attributes are a type of synthesized attributes.<split>A,C,D<endofquestion>06. The predicate in Rule 2 of Attribute Grammar 1 ensures what?
+    A. Data types cannot be mixed in expressions.
+    B. The type of the left-hand side (lvalue) in an assignment statement must 
+       match the type of the right-hand side (rvalue).
+    C. both A & B<split>C<endofquestion>07. Grammar 1 Rule 2 uses inheritance to pass information from &lt;var>[1].type
+    to &lt;expr>.type.<split>B<endofquestion>08. The attribute .type in Grammar 1 Rule 4 is assigned a value before parsing 
+    begins.<split>A<endofquestion>09. What is true concerning the decorated parse tree for this assignment 
+    statement?  A = B + C
+
+                          &lt;assign>
+                         /          \
+                     &lt;var>   =     &lt;expr>
+                    .type=int        .type=?
+                      |           /         \ 
+                      A      &lt;var>     +    &lt;var>
+                            .type=int        .type=?
+                               |                |
+                               B                C
+
+A. If C is type int the predicate in Grammar 1 Rule 1 will return true. 
+B. &lt;expr>.type will be assigned type int by Rule 2.
+C. If C is type real the predicate at Rule 2 will return true.
+D. This grammar allows compiler coercions.<split>A,B,C,D<endofquestion>10. What is true if you parse B = A with Attribute Grammar 2?
+    A. Information is carried from &lt;var> to &lt;expr>.
+    B. Information is carried from &lt;expr> to &lt;var>.
+    C. Both A & B<split>A<endofquestion>11. If you parse C = A with Attribute Grammar 2, what does this semantic rule do?
+ 
+        &lt;expr>.actual_type &lt;- &lt;var>.actual_type  (Rule #3)
+
+    A. &lt;expr>.actual_type is synthesized from &lt;var>.actual_type
+    B. &lt;var>.actual_type is synthesized from &lt;expr>.actual_type
+    C. &lt;expr>.actual_type is inherited from &lt;var>.actual_type<split>A<endofquestion>12. What is true if you parse the statement below using the symbol table values?
+                      C = A
+
+    A. This statement violates the predicate rule that applies to
+       &lt;expr> -> &lt;var>[2] + &lt;var>[3]
+    B. This statement violates the predicate at Rule 3.
+    C. This statement does not violate a predicate rule.<split>B<endofquestion>13. What is true about the statement below using the values in the symbol table?
+                  B = A + C
+
+    A. This statement violates the predicate at Rule 2.
+    B. This statement violates the predicate at Rule 3.
+    C. The compiler coerces B to an int in the assignment statement.
+    D. The compiler coerces A to a real in the expression A + C.<split>D<endofquestion>14. What is true when this predicate is evaluated in Attribute Grammar 2?
+      Predicate: &lt;expr>.actual_type == &lt;expr>.expected_type
+
+   A. The value of expected_type has been inherited from the left-hand side of 
+      the assignment statement.
+   B. The value of expected_type has been synthesized from the right-hand side 
+      of the assignment statement.<split>A<endofquestion>15. Prolog is based on a closed world assumption. This means that 
+    A. anything you do not know and cannot deduce is false.
+    B. unless explicitly known as false you can assume true.<split>A<endofquestion>16. What does this prolog rule mean?
+            loves(jack,X) :- rich(X).
+    A. jack loves everyone who is rich.
+    B. If jack loves you then you are rich.
+    C. If you are not rich then Jack does not love you.<split>A<endofquestion><tt>
+17. Which of the following is the correct form of a definite clause? 
+    Notation: '^' is AND;   'v' is OR;  '~' is NOT
+
+    A. p ^ q ^ r ^ ... w ^ ~z
+    B. ~p v ~q v ~r v ... v ~w v z
+    C. ~p ^ ~q ^ ~r ^ ... ^ ~w ^ z  
+</tt><split>B<endofquestion>18. A definite clause without a body is a fact in prolog.<split>A<endofquestion>19. What does this Prolog rule mean if the universe of discourse is all widgets?
+
+          alsoRelated(X,Y) :- related(Z,X), related(Z,Y).
+
+    A. If every widget that is related to X is also related to Y, then widgets 
+       X and Y are alsoRelated.
+    B. If there is a widget Z that is related to widget X and also related to
+       widget Y, then X and Y are alsoRelated.<split>B<endofquestion>20. Which is the correct recursive rule after this rule to define ancestors?
+            ancestor(X,Y) :- parent(X,Y).
+
+    A. ancestor(X,Y) :- ancestor(Z,Y), parent(X,Z).
+    B. ancestor(X,Y) :- parent(X,Z), ancestor(Z,Y).<split>B<endofquestion>21. This BNF grammar
+  &lt;cmdlist> ::= &lt;cmd> | &lt;cmdlist>; &lt;cmd>
+     is equivalent to this EBNF grammar, where { } denotes 0 or more times.
+  &lt;cmdlist> ::= &lt;cmd> | {;&lt;cmdlist>}<split>A<endofquestion>01. What are some advantages that dynamic typing offers over static typing?
+    A. reliability    B. flexibility     C. efficiency    D. writability<split>B,D<endofquestion>02. Under what condition is language B less strongly typed than language A?
+    A. if B has more implicit type coercions than A
+    B. if B has more explicit type conversions than A
+    C. both statements are true<split>A<endofquestion>03. The scripting languages JavaScript, Python, PHP, and Ruby are
+    A. dynamically typed   B. typeless   C. statically typed    D. a combination<split>A<endofquestion>04. Which is always bound to a modifiable memory reference?
+    A. an lvalue          B. an rvalue       C. both must be bound<split>A<endofquestion>05. What is true in the assignment statement 'A = 5 + 8'?
+    A. there is no rvalue
+    B. the result of 5 + 8 is an unmodifiable value
+    C. the rvalue is not bound to a memory address
+    D. the lvalue must be modifiable.<split>B,C,D<endofquestion>06. Select the true statement.
+    A. A binding is static if it first occurs before run time and remains 
+       unchanged throughout program execution.
+    B. A binding is dynamic if it first occurs during execution or can change 
+       during execution of the program.
+    C. both A & B.<split>C<endofquestion>07. What is true about this C code if it comprises one compilation unit?
+      void funa( ) {
+        extern x;
+        x = x--; 
+        printf("x = %d",x);
+      }
+   A. the linker will bind x to a memory address on the runtime stack
+   B. the linker will bind x to a memory address in the data section
+   C. the compiler will bind x to a memory address in the data section<split>B<endofquestion>08. What is true concerning C static variables, such as x in this C function?
+     void fun () {
+          static int x = 5;
+     }
+   A. the value of x can never change
+   B. x is bound to the same memory address throughout program execution
+   C. x is bound to a memory address by the compiler
+   D. there can be only one instance of a variable named 'x' in the program.<split>B,C<endofquestion>09. What can occur in a dynamically scoped language that cannot occur in a
+    statically scoped language?
+    A. a reference to a non-local variable can be bound to a memory address at 
+       runtime 
+    B. the visibility of a non-local variable can change at runtime 
+    C. the address of a global variable can be bound by the compiler 
+    D. the scope and visibility of a variable can be determined by looking at
+       the code<split>A,B<endofquestion>10. Since Ada has static scoping like C, the reference to non-local X from 
+    Sub3 is bound to the declaration of X in Sub1 in PROG1.<split>B<endofquestion>11. Since Ada has static scoping, the reference to X in Sub2 is bound to the 
+    declaration of X in Main in PROG1.<split>B<endofquestion>12. Under Ada's static scoping, what value for X is displayed on the screen 
+    after executing Main in PROG1? 
+    A. 2        B. 3       C. 0<split>B<endofquestion>13. In PROG1, if you uncommented the line which is a reference to Y from Main
+    what would happen?
+    A. Y will be bound to the the address of Y in Sub3      
+    B. it will result in a compilation error<split>B<endofquestion>14. Under static scoping what value of X is printed in procedure JUNK? 
+    A. 0       B. 5      C. 15      D. 30<split>D<endofquestion>15. Under dynamic scoping, what value of X would be printed in procedure JUNK?
+    A. 0       B. 10       C. 25       D. 30<split>C<endofquestion>16. This program will not link since you have declared multiple static 
+    variables named 'x'.<split>B<endofquestion>17. The source file2.c will not compile because you can't change the value of 
+    a static variable; i.e., you can set the value once when the variable is 
+    declared and never change it.<split>B<endofquestion>18. Consider the statement  str[0] = 'a' in file2.c. What is true?
+    A. Since the lvalue is immutable this statement will not compile.
+    B. The code will compile but will produce a segmentation fault at runtime. 
+    C. There is nothing wrong with this statement.
+    D. The code will not compile because a literal string does not match type
+       char *.<split>B<endofquestion>19. What is true regarding this C++ variable declaration?
+             const int y = 5;       // this is a named constant
+
+    A. The statement will not compile because the lvalue is unmodifiable.
+    B. The statement will compile but any subsequent assignment statment for y 
+       will result in an unmodifiable lvalue error by the compiler.<split>B<endofquestion>20. A static variable with class scope in C++ exists before any object of that
+    class is created.<split>A<endofquestion>21. It is possible to dynamically bind the value of a variable and statically
+    bind the address of that same variable.<split>A<endofquestion>22. What type of coercion is present in the following C code?
+      int X = 10;
+      float Y = 10;
+      X = Y;
+
+    A. an int is coerced into a float
+    B. a float coerced into an int
+    C. both A & B<split>C<endofquestion>23. How would would describe the type binding in this Perl statement? Assume
+    this is the first reference to $var.
+            $var = 5;
+
+    A. $var is dynamically bound to type integer 
+    B. $var is statically bound to type scalar  
+    C. both A & B<split>C<endofquestion>24. Which of the following is not a category of variables defined by storage
+    binding?
+    A. stack dynamic
+    B. explicit stack dynamic
+    C. static
+    D. implicit heap dynamic<split>B<endofquestion>25. What does this C function achieve?
+    void ptrs(int** ptr1, int** ptr2){
+       int* tmp_ptr = *ptr1;
+       *ptr1 = *ptr2;    
+       *ptr2 = tmp_ptr; 
+    }
+    A. you are swapping integer values
+    B. you are swapping addresses to integers 
+    C. you are swapping addresses to pointers<split>B<endofquestion>26. An Ada identifier must start with a letter and be followed by zero or more 
+    letters, digits or underscores. An underscore cannot be the final symbol 
+    or be followed by another underscore. Is this regular express correct?
+  
+          [a-zA-Z][a-zA-Z0-9_]([a-zA-Z0-9])*{_[a-zA-Z0-9]}<split>B<endofquestion>27. What will this Perl statement achieve?  (s is the substitute command and g 
+    will apply the command to all instances of the match in the line)
+ 
+         $line =~ s/^[0-9]*\.//g;            
+
+    A. remove all digits in the line.
+    B. remove all the digits at the beginning of the line.  
+    C. remove all the digits at the beginning of the line that are followed by .<split>C<endofquestion>28. The statement below is an acceptable initialization for a static named 
+    constant of type char[].
+
+         const char myName[30] =  "santa claus";<split>A<endofquestion>29. What does the RE in this Perl statement match?
+
+         next if /^$/;   
+
+    A. any line     B. a blank line<split>B<endofquestion>30. Downcasting a derived type to a base type in C++ is 
+    A. explicit only        B. implicit       C. never allowed<split>B<endofquestion>31. What is this Ada statement?
+ 
+       type AN_ARRAY is array(FIRST..LAST) of INTEGERS;           
+
+   A. an abstract data type 
+   B. an array variable of integers named AN_ARRAY 
+   C. both A and B<split>A<endofquestion>32. This Ada program will raise a range error exception at runtime.
+
+    PROCEDURE main is
+    subtype SUB_INT is INTEGER range 1..50;              
+    X : SUB_INT;           
+    BEGIN
+       X := 60; 
+    END<split>A<endofquestion>33. The following Perl statements will execute without error. What can you thus
+    conclude?
+
+        $var = 5;             
+        $var = "hello there";        
+
+     A. strings are primitive scalar types
+     B. strings are implicitly coerced into integers
+     C. Perl is a dynamically-typed language
+     D. memory for $var is dynamically allocated<split>A,C,D<endofquestion>34. Which of the following do named constants support?
+    A. readability  B. parameterization   C. both A & B<split>C<endofquestion>35. Ada was designed by the Dept of Defense for 
+    A. reliability
+    B. large team projects
+    C. embedded systems
+    D. concurrent programming<split>A,B,C,D<endofquestion>
